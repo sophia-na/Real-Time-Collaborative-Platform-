@@ -21,8 +21,8 @@ This project is a real-time collaboration tool enabling multiple users to work o
 ### Installation
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/sophia-na/Real-Time-Collaborative-Platform-.git
+  
 
 Project Structure
 
