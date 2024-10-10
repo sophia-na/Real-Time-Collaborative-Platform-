@@ -27,6 +27,7 @@ This project is a real-time collaboration tool enabling multiple users to work o
 Project Structure
 
 root
+├── .env
 ├── .gitignore
 ├── backend
 │   ├── src
@@ -47,3 +48,4 @@ root
 │   ├── service.yaml
 │   └── ingress.yaml
 └── README.md
+
