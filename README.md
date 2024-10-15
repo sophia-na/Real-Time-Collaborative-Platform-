@@ -25,27 +25,34 @@ This project is a real-time collaboration tool enabling multiple users to work o
   
 
 Project Structure
-
-root
-├── .env
-├── .gitignore
-├── backend
-│   ├── src
-│   │   ├── controllers
-│   │   ├── models
-│   │   ├── routes
-│   │   └── services
-│   └── index.ts
-├── frontend
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   └── services
-│   └── index.tsx
-├── docker-compose.yml
-├── kubernetes
-│   ├── deployment.yaml
-│   ├── service.yaml
-│   └── ingress.yaml
-└── README.md
-
+ 
+ project-root/
+|-- backend/
+|   |-- Dockerfile
+|   |-- package.json
+|   |-- tsconfig.json
+|   |-- src/
+|       |-- controllers/
+|       |-- models/
+|       |-- routes/
+|       |-- services/
+|       |-- index.ts
+|-- frontend/
+|   |-- Dockerfile
+|   |-- package.json
+|   |-- tsconfig.json
+|   |-- public/
+|       |-- index.html
+|   |-- src/
+|       |-- index.tsx
+|       |-- components/
+|       |-- pages/
+|       |-- services/
+|-- docker-compose.yaml
+|-- kubernetes/
+|   |-- deployment.yaml
+|   |-- service.yaml
+|   |-- ingress.yaml
+|-- .env
+|-- .gitignore
+|-- README.md

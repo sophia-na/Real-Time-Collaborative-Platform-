@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collaborative-platform
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: collaborative-platform
+  template:
+    metadata:
+      labels:
+        app: collaborative-platform
+    spec:
+      containers:
+      - name: backend
+        image: your-backend-image
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          value: "postgres://user:password@postgres:5432/dbname"
+      - name: frontend
+        image: your-frontend-image
+        ports:
+        - containerPort: 80
