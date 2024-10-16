@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: dbname
     ports:
-      - "5432:5432"
+      - "5433:5432" # Host:Container, changing host port to 5433
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     environment:
@@ -17,15 +17,15 @@ services:
   backend:
     build: ./backend
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - postgres
       - elasticsearch
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "3000:3000"
     depends_on:
       - backend
 
- 
+
