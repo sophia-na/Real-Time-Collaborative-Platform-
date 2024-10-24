@@ -1,6 +1,8 @@
-import Task from '../models/taskModel';  // Sequelize Task model
 
-// Export each function individually
+import Task from '../models/taskModel';  // Sequelize Task model
+import { indexTaskInElasticSearch } from './elasticsearch';
+
+ // Export each function individually
  export const getAllTasks = async () => {
     try {
       const tasks = await Task.findAll();  // Fetch all tasks from the database
@@ -15,6 +17,7 @@ import Task from '../models/taskModel';  // Sequelize Task model
     // Logic to create a new task
     try{
       const newTask = await Task.create(taskData);  // This automatically interacts with the DB
+      await indexTaskInElasticSearch(newTask);  // Index the task in Elasticsearch
       return newTask;
     } catch(error){
       console.error('Error create tasks:', error);

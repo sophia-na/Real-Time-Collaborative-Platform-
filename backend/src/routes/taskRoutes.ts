@@ -2,8 +2,6 @@ import express, { Router } from 'express';
 import {getAllTasks} from '../services/taskService';
 import {createTask,updateTask,deleteTask} from '../services/taskService';
 
-
-
 const taskRoutes = express.Router();
 //Define routes and map them to controller actions
 
