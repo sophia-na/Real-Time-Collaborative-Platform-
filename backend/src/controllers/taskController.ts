@@ -1,6 +1,11 @@
 // export default new TaskController();
-import { Request, Response } from 'express';
-import { getAllTasks, createTask, updateTask, deleteTask } from '../services/taskService';
+import { Request, Response } from "express";
+import {
+  getAllTasks,
+  createTask,
+  updateTask,
+  deleteTask,
+} from "../services/taskService";
 
 class TaskController {
   async getAllTasksHandler(req: Request, res: Response) {
@@ -8,7 +13,7 @@ class TaskController {
       const tasks = await getAllTasks();
       res.status(200).json(tasks);
     } catch (error) {
-      res.status(500).json({ message: 'Error fetching tasks', error });
+      res.status(500).json({ message: "Error fetching tasks", error });
     }
   }
 
@@ -18,7 +23,7 @@ class TaskController {
       const newTask = await createTask({ title, description });
       res.status(201).json(newTask);
     } catch (error) {
-      res.status(500).json({ message: 'Error creating task', error });
+      res.status(500).json({ message: "Error creating task", error });
     }
   }
 
@@ -29,7 +34,7 @@ class TaskController {
       const updatedTask = await updateTask(id, { title, description });
       res.json(updatedTask);
     } catch (error) {
-      res.status(500).json({ message: 'Error updating task', error });
+      res.status(500).json({ message: "Error updating task", error });
     }
   }
 
@@ -39,7 +44,7 @@ class TaskController {
       await deleteTask(id);
       res.status(204).send();
     } catch (error) {
-      res.status(500).json({ message: 'Error deleting task', error });
+      res.status(500).json({ message: "Error deleting task", error });
     }
   }
 }

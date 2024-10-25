@@ -1,33 +1,36 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes } from "sequelize";
 //import sequelize from '../config/database';
-import sequelize from '../services/database'
+import sequelize from "../services/database";
 
 class Task extends Model {
-    public id!: number;
-    public title!: string;
-    public description!: string;
-    public readonly createdAt!: Date;
-    public readonly updatedAt!: Date;
+  public id!: number;
+  public title!: string;
+  public description!: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
 }
 
-Task.init({
+Task.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     title: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
+      type: DataTypes.STRING(255),
+      allowNull: false,
     },
     description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
-}, {
+  },
+  {
     sequelize,
-    modelName: 'Task',
-    tableName: 'tasks',
-});
+    modelName: "Task",
+    tableName: "tasks",
+  },
+);
 
 export default Task;

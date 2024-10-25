@@ -1,30 +1,32 @@
-declare module '@elastic/elasticsearch';
+declare module "@elastic/elasticsearch";
 
-import { Client } from '@elastic/elasticsearch';
+import { Client } from "@elastic/elasticsearch";
 
 // Create a new Elasticsearch client instance
-const client = new Client({ 
-  node: process.env.ELASTICSEARCH_URL || 'http://localhost:9200'  // URL of the Elasticsearch cluster
+const client = new Client({
+  node: process.env.ELASTICSEARCH_URL || "http://localhost:9200", // URL of the Elasticsearch cluster
 });
 
 // Initialize Elasticsearch index
 export const initializeElasticSearch = async () => {
   try {
     // Check if the index already exists
-    const { body: indexExists } = await client.indices.exists({ index: 'tasks' });
-    
+    const { body: indexExists } = await client.indices.exists({
+      index: "tasks",
+    });
+
     if (!indexExists) {
       // Create an index for tasks if it doesn't exist
       await client.indices.create({
-        index: 'tasks',
+        index: "tasks",
         body: {
           mappings: {
             properties: {
-              title: { type: 'text' },
-              description: { type: 'text' },
-              completed: { type: 'boolean' },
-              createdAt: { type: 'date' },
-              updatedAt: { type: 'date' },
+              title: { type: "text" },
+              description: { type: "text" },
+              completed: { type: "boolean" },
+              createdAt: { type: "date" },
+              updatedAt: { type: "date" },
             },
           },
         },
@@ -34,7 +36,7 @@ export const initializeElasticSearch = async () => {
       console.log('Elasticsearch index "tasks" already exists.');
     }
   } catch (error) {
-    console.error('Error initializing Elasticsearch:', error);
+    console.error("Error initializing Elasticsearch:", error);
   }
 };
 
@@ -42,7 +44,7 @@ export const initializeElasticSearch = async () => {
 export const indexTaskInElasticSearch = async (task: any) => {
   try {
     await client.index({
-      index: 'tasks',
+      index: "tasks",
       id: task.id.toString(),
       body: {
         title: task.title,
@@ -54,7 +56,7 @@ export const indexTaskInElasticSearch = async (task: any) => {
     });
     console.log(`Task with ID ${task.id} indexed in Elasticsearch`);
   } catch (error) {
-    console.error('Error indexing task in Elasticsearch:', error);
+    console.error("Error indexing task in Elasticsearch:", error);
   }
 };
 
@@ -62,12 +64,12 @@ export const indexTaskInElasticSearch = async (task: any) => {
 export const searchTasks = async (query: string) => {
   try {
     const { body } = await client.search({
-      index: 'tasks',
+      index: "tasks",
       body: {
         query: {
           multi_match: {
             query: query,
-            fields: ['title', 'description'],  // Search in these fields
+            fields: ["title", "description"], // Search in these fields
           },
         },
       },
@@ -75,7 +77,7 @@ export const searchTasks = async (query: string) => {
 
     return body.hits.hits.map((hit: any) => hit._source);
   } catch (error) {
-    console.error('Error searching tasks in Elasticsearch:', error);
-    throw new Error('Search failed');
+    console.error("Error searching tasks in Elasticsearch:", error);
+    throw new Error("Search failed");
   }
 };
