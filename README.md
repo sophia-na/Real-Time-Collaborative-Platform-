@@ -37,6 +37,7 @@ Project Structure
 |       |-- routes/
 |       |-- services/
 |       |-- index.ts
+|   |--.env
 |-- frontend/
 |   |-- Dockerfile
 |   |-- package.json
