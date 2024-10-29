@@ -4,7 +4,6 @@ import Home from './components/Home';
 import Header from './components/Header';
 import ProjectCard from './components/ProjectCard';
 import Dashboard from './Dashboard';
-import Button from './components/Button';
 import CollaborativeInput  from'./components/CollaborativeInput';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
@@ -18,9 +17,9 @@ const ProjectCardPage: React.FC = () => (
   return (
     
     <Router>
-      {/* <nav>
+      <nav>
           <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link>
-      </nav> */}
+      </nav>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
