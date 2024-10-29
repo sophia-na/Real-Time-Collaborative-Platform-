@@ -5,9 +5,34 @@ import sequelize from "./services/database";
 import http from "http";
 import { initializeElasticSearch } from "./services/elasticsearch";
 import { initializeWebSocket } from "./websocket";
+import dotenv from 'dotenv';
 
+// Load environment variables from .env file
+dotenv.config();
+ 
+import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3001;
+
+// Enable CORS for all routes
+//app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000' // Replace with your frontend URL
+}));
+
+//axios on backend
+app.get('/api/data', (req, res) => {
+  // Example data you might send back
+  const data = {
+    id: 1,
+    name: 'Example Data',
+    description: 'This is some sample data from the backend.'
+  };
+  
+  res.json(data); // Send the data as JSON response
+});
+
+
 
 // Middleware
 app.use(bodyParser.json());
