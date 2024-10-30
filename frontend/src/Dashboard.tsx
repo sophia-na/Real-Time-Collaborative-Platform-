@@ -1,10 +1,7 @@
 // // src/pages/Dashboard.tsx
 
 import React, { useState } from 'react';
-import ProjectForm from './components/ProjectForm';
- 
-
-
+import ProjectForm from './components/forms/ProjectForm';
 
 const Dashboard: React.FC = () => {
   const [isCreatingProject, setIsCreatingProject] = useState(false);

@@ -1,0 +1,27 @@
+/* src/styles/globals.css */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global body styling */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    background-color: #f4f4f9;
+  }
+  
+  /* Default link styling */
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

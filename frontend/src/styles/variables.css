@@ -1,0 +1,9 @@
+/* src/styles/variables.css */
+:root {
+    --primary-color: #4caf50;
+    --secondary-color: #ff5722;
+    --text-color: #333;
+    --font-size-base: 16px;
+    --spacing-base: 8px;
+  }
+  

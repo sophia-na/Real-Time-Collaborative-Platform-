@@ -7,7 +7,7 @@
 // const root = createRoot(container);
 // root.render(<App />);
 
- // src/index.tsx
+// src/index.tsx
 
 // import React from 'react';
 // import ReactDOM from 'react-dom'; // ReactDOM for React 17
@@ -30,6 +30,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css'; // Optional, but make sure this file exists if you're importing it
+
+import './styles/variables.css';
+import './styles/globals.css';
 
 ReactDOM.render(
   <React.StrictMode>

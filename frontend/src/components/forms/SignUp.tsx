@@ -1,7 +1,7 @@
 // src/components/SignUp.tsx
 
 import React, { useState } from 'react';
-import './AuthForm.css';
+import '../AuthForm.css';
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>('');

@@ -5,8 +5,8 @@ import Header from './components/Header';
 import ProjectCard from './components/ProjectCard';
 import Dashboard from './Dashboard';
 import CollaborativeInput  from'./components/CollaborativeInput';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import Login from './components/forms/Login';
+import SignUp from './components/forms/SignUp';
  
  
 const ProjectCardPage: React.FC = () => (
@@ -29,11 +29,6 @@ const ProjectCardPage: React.FC = () => (
          <Route path="login" element={<Login />} />   {/* Use <Login /> */}
         <Route path="signup" element={<SignUp />} /> {/* Use <SignUp /> */}
         <Route path='projectcard' element={ProjectCard}/>
-
-
-
-
-
       </Routes>
     </Router>
   );
