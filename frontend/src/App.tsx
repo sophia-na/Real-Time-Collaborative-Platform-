@@ -15,7 +15,6 @@ const ProjectCardPage: React.FC = () => (
  
  const App: React.FC = () => {
   return (
-    
     <Router>
       <nav>
           <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link>
@@ -23,17 +22,12 @@ const ProjectCardPage: React.FC = () => (
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="projectcard" element={<ProjectCardPage />} /> {/* Use the wrapper here */}
-         <Route path="collaborativeinput" element={<CollaborativeInput initialText="Start typing..." onTextChange={(text) => console.log(text)} />} />
-         <Route path="login" element={<Login />} />   {/* Use <Login /> */}
+        <Route path="collaborativeinput" element={<CollaborativeInput initialText="Start typing..." onTextChange={(text) => console.log(text)} />} />
+        <Route path="login" element={<Login />} />   {/* Use <Login /> */}
         <Route path="signup" element={<SignUp />} /> {/* Use <SignUp /> */}
-        <Route path='projectcard' element={ProjectCard}/>
-
-
-
-
-
+        {/* <Route path='projectcard' element={ProjectCard}/> */}
       </Routes>
     </Router>
   );
