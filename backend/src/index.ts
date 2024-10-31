@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 
 // Load environment variables from .env file
 dotenv.config();
- 
+
 import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3001;
@@ -21,17 +21,16 @@ app.use(cors({
 }));
 
 //axios on backend
-app.get('/api/data', (req, res) => {
-  // Example data you might send back
-  const data = {
-    id: 1,
-    name: 'Example Data',
-    description: 'This is some sample data from the backend.'
-  };
-  
-  res.json(data); // Send the data as JSON response
-});
+// app.get('/api/data', (req, res) => {
+//   // Example data you might send back
+//   const data = {
+//     id: 1,
+//     name: 'Example Data',
+//     description: 'This is some sample data from the backend.'
+//   };
 
+//   res.json(data); // Send the data as JSON response
+// });
 
 
 // Middleware

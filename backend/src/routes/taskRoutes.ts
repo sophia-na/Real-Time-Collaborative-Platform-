@@ -47,4 +47,22 @@ taskRoutes.delete("/:id", async (req, res) => {
   }
 });
 
+//GET /tasks - Fetch all tasks
+taskRoutes.post('/projects', (req, res) => {
+  const { name, description, participants } = req.body;
+  // Save project to the database (example code)
+  res.status(201).json({ message: 'Project created successfully' });
+});
+
+// taskRoutes.get('/api/data', (req, res) => {
+//   // Example data you might send back
+//   const data = {
+//     id: 1,
+//     name: 'Example Data',
+//     description: 'This is some sample data from the backend.'
+//   };
+  
+//   res.json(data); // Send the data as JSON response
+// });
+
 export default taskRoutes;

@@ -1,22 +1,22 @@
 // export default Home;
 
 import React, { useEffect, useState } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
 const Home: React.FC = () => {
   const [data, setData] = useState(null);
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:3001/api/data')
-  //     .then((response) => {
-  //       setData(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching data:', error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/data')
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>

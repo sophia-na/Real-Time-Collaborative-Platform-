@@ -1,0 +1,19 @@
+/* src/App.css */
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the container fill the viewport height */
+  }
+  
+  .main-content {
+    flex: 1; /* Allows the main content to expand, pushing the footer to the bottom */
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
