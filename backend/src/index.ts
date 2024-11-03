@@ -6,6 +6,7 @@ import http from "http";
 import { initializeElasticSearch } from "./services/elasticsearch";
 import { initializeWebSocket } from "./websocket";
 import dotenv from 'dotenv';
+import projectRoutes from './routes/projectRoutes';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -15,10 +16,21 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Enable CORS for all routes
+
 //app.use(cors());
+
 app.use(cors({
-  origin: 'http://localhost:3000' // Replace with your frontend URL
+  origin: process.env.CORS_ORIGIN,
 }));
+
+// app.use(cors({
+//   origin: 'http://localhost:3000', // Allow only the frontend URL
+//   methods: 'GET,POST,PUT,DELETE',   // Allow common HTTP methods
+//   credentials: true,                // Allow cookies if using sessions
+// }));
+
+app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
 
 //axios on backend
 // app.get('/api/data', (req, res) => {
@@ -37,7 +49,7 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Routes
-app.use("/tasks", taskRoutes);
+//app.use("/tasks", taskRoutes);
 
 // Database connection
 sequelize

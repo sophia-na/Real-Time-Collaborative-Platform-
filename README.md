@@ -32,11 +32,19 @@ Project Structure
 |   |-- package.json
 |   |-- tsconfig.json
 |   |-- src/
-|       |-- controllers/
-|       |-- models/
-|       |-- routes/
-|       |-- services/
-|       |-- index.ts
+|      |-- models/
+|          |-- taskModel.ts          // ORM model for Task
+|          |-- projectModel.ts       // ORM model for Project
+|     |-- services/
+|         |-- taskService.ts        // Logic for task operations (CRUD)
+|         |-- projectService.ts     // Logic for project operations (CRUD)
+|     |-- routes/
+|          |-- taskRoutes.ts         // Routes for task endpoints
+|          |-- projectRoutes.ts      // Routes for project endpoints
+|   |-- controllers/              // Additional folder for controllers if you use MVC
+|          |-- taskContoller.ts
+|          |-- projectController.ts
+|   |-- index.ts                  // Entry point
 |   |--.env
 frontend/
 |-- Dockerfile
