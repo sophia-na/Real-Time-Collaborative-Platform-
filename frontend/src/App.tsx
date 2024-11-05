@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Header from './components/Header';
-import ProjectCard from './components/ProjectCard';
-import Dashboard from './Dashboard';
-import CollaborativeInput from './components/CollaborativeInput';
+import ProjectCard from './pages/ProjectCard';
+import Dashboard from './pages/Dashboard';
+import CollaborativeInput from './pages/CollaborativeInput';
 import Login from './components/forms/Login';
 import SignUp from './components/forms/SignUp';
 import Footer from './components/Footer';

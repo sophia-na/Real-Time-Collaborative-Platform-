@@ -19,31 +19,18 @@ const port = process.env.PORT || 3001;
 
 //app.use(cors());
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-}));
-
 // app.use(cors({
-//   origin: 'http://localhost:3000', // Allow only the frontend URL
-//   methods: 'GET,POST,PUT,DELETE',   // Allow common HTTP methods
-//   credentials: true,                // Allow cookies if using sessions
+//   origin: process.env.CORS_ORIGIN,
 // }));
+
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000', // Allow frontend URL
+  methods: 'GET,POST,PUT,DELETE',   // Allow common HTTP methods
+  //credentials: true,                // Allow credentials if needed
+}));
 
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
-
-//axios on backend
-// app.get('/api/data', (req, res) => {
-//   // Example data you might send back
-//   const data = {
-//     id: 1,
-//     name: 'Example Data',
-//     description: 'This is some sample data from the backend.'
-//   };
-
-//   res.json(data); // Send the data as JSON response
-// });
-
 
 // Middleware
 app.use(bodyParser.json());

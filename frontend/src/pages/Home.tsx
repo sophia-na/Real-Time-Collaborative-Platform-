@@ -3,13 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import api from '../services/api';
 
 
 const Home: React.FC = () => {
   const [data, setData] = useState(null);
 
+
   useEffect(() => {
-    axios.get('http://localhost:3001/api/data')
+    api.get('/projects')  // Adjust endpoint as needed
       .then((response) => {
         setData(response.data);
       })
