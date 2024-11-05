@@ -1,5 +1,4 @@
 import { DataTypes, Model } from 'sequelize';
-// import sequelize from '../config/database'; // Import your Sequelize instance
 import sequelize from "../services/database";
 
 

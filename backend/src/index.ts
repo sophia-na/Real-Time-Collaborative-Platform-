@@ -29,14 +29,15 @@ app.use(cors({
   //credentials: true,                // Allow credentials if needed
 }));
 
-app.use('/api/projects', projectRoutes);
-app.use('/api/tasks', taskRoutes);
+
 
 // Middleware
 app.use(bodyParser.json());
 
 // Routes
-//app.use("/tasks", taskRoutes);
+app.use("/tasks", taskRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/projects', projectRoutes);
 
 // Database connection
 sequelize
@@ -50,6 +51,8 @@ sequelize
   .catch((error: any) => {
     console.log("Failed to connect to the database:", error);
   });
+
+
 
 //const app = express();
 //const PORT = process.env.PORT || 3001;

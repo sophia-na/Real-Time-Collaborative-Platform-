@@ -6,8 +6,18 @@ export const getAllProjects = async () => {
 };
 
 // Create a new project
-export const createProject = async (projectData: { name: string; description: string; participants: string[] }) => {
-    return await Project.create(projectData);
+// export const createProject = async (projectData: { name: string; description: string; participants: string[] }) => {
+//     return await Project.create(projectData);
+// };
+
+export const createProject = async (projectData: { name: string; description: string; participants?: string[] }) => {
+    try {
+        const project = await Project.create(projectData);
+        return project;
+    } catch (error) {
+        console.error('Error creating project:', error); // Add error logging here
+        throw new Error('Failed to create project');
+    }
 };
 
 // Update an existing project

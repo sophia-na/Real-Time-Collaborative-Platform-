@@ -3,7 +3,7 @@ import { getAllProjects, createProject, updateProject, deleteProject } from '../
 
 const projectRoutes = express.Router();
 
-projectRoutes.get('/projects', async (_req, res) => {
+projectRoutes.get('/', async (_req, res) => {
   try {
     const projects = await getAllProjects();
     res.json(projects);
@@ -12,7 +12,17 @@ projectRoutes.get('/projects', async (_req, res) => {
   }
 });
 
-projectRoutes.post('/projects', async (req, res) => {
+// projectRoutes.post('/', async (req, res) => {
+//   try {
+//     const newProject = await createProject(req.body);
+//     res.status(201).json(newProject);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to create project' });
+//   }
+// });
+
+
+projectRoutes.post('/', async (req, res) => {
   try {
     const newProject = await createProject(req.body);
     res.status(201).json(newProject);
@@ -21,7 +31,8 @@ projectRoutes.post('/projects', async (req, res) => {
   }
 });
 
-projectRoutes.put('/projects/:id', async (req, res) => {
+
+projectRoutes.put('/:id', async (req, res) => {
   try {
     const updatedProject = await updateProject(Number(req.params.id), req.body);
     res.json(updatedProject);
@@ -30,7 +41,7 @@ projectRoutes.put('/projects/:id', async (req, res) => {
   }
 });
 
-projectRoutes.delete('/projects/:id', async (req, res) => {
+projectRoutes.delete('/:id', async (req, res) => {
   try {
     await deleteProject(Number(req.params.id));
     res.status(204).send();
