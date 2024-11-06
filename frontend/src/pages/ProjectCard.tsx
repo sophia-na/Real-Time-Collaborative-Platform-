@@ -1,20 +1,19 @@
-// src/components/ProjectCard.tsx
+// ProjectCard.tsx
 import React from 'react';
+import { Project } from './types';
 
-interface ProjectCardProps {
-  name: string;
-  lastUpdated: string;
-}
+type ProjectCardProps = {
+  project: Project;
+};
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, lastUpdated }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div style={{ border: '1px solid #ddd', padding: '10px', margin: '10px 0' }}>
-      <h3>{name}</h3>
-      <p>Last Updated: {lastUpdated}</p>
+    <div className="project-card">
+      <h3>{project.name}</h3>
+      <p>{project.description}</p>
+      {/* Display other project details here as needed */}
     </div>
   );
 };
 
 export default ProjectCard;
-
- 

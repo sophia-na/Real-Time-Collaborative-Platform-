@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     <header style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
       <h1>Real-Time Collaborative Platform</h1>
       <nav>
-        <a href="/dashboard">Dashboard</a> | <a href="/projects">Projects</a> | <a href="/settings">Settings</a>
+        <a href="/dashboard">Dashboard</a> | <a href="/projectcard">Projects</a> | <a href="/collaborativeinput">Collaborativeinput</a>
       </nav>
     </header>
   );

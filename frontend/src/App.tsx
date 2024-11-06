@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Header from './components/Header';
-import ProjectCard from './pages/ProjectCard';
+import ProjectsPage from './pages/ProjectsPage';
 import Dashboard from './pages/Dashboard';
 import CollaborativeInput from './pages/CollaborativeInput';
 import Login from './components/forms/Login';
@@ -11,9 +11,9 @@ import Footer from './components/Footer';
 import './App.css';
 
 
-const ProjectCardPage: React.FC = () => (
-  <ProjectCard name="Example Project" lastUpdated="10 mins ago" />
-);
+// const ProjectCardPage: React.FC = () => (
+//   <ProjectCard name="Example Project" lastUpdated="10 mins ago" />
+// );
 
 const App: React.FC = () => {
   return (
@@ -27,11 +27,11 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="projectcard" element={<ProjectCardPage />} /> {/* Use the wrapper here */}
+            <Route path="projectcard" element={<ProjectsPage />} />
             <Route path="collaborativeinput" element={<CollaborativeInput initialText="Start typing..." onTextChange={(text) => console.log(text)} />} />
             <Route path="login" element={<Login />} />   {/* Use <Login /> */}
             <Route path="signup" element={<SignUp />} /> {/* Use <SignUp /> */}
-            {/* <Route path='projectcard' element={ProjectCard}/> */}
+
 
           </Routes>
         </main>
